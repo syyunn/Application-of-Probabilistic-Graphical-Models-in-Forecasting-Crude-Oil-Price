@@ -13,3 +13,4 @@ def clean_EIA_series(data: pd.DataFrame):
     data.fillna(method='bfill', inplace=True)
     data.index = data.index.map(convert_to_datetime)
     data.index = pd.to_datetime(data.index)
+    return None  # best-practice to denote the function is void.
