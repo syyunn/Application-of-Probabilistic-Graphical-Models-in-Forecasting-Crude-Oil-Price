@@ -3,6 +3,8 @@ import numpy as np
 
 import eia
 
+import api_keys
+
 if __name__ == "__main__":
-    api_key = ""
-    eia_api = eia.API(api_key)
+    eia_api = eia.API(api_keys.eia)
+    pass
