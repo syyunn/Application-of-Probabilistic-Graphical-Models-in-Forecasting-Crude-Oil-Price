@@ -38,3 +38,7 @@ def plot_time_series(
     plt.ylabel(y_label + " : " + y_unit)
     plt.grid()
     plt.show()
+
+
+def store_df_local(df, fpath):
+    df.to_pickle(fpath)  # where to save it, usually as a .pkl
