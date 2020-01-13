@@ -24,9 +24,9 @@ for series_id in datasets_fred:
     df = pd.DataFrame(fred.get_series(series_id), columns=[series_id])
     data_merge.append(df)
 
-data = pd.concat(data_merge, axis=1, join='inner')
+data = pd.concat(data_merge, axis=1, join="inner")
 
-utils.store_df_local(data, './data.pkl')
+utils.store_df_local(data, "./data.pkl")
 
 if __name__ == "__main__":
     pass
