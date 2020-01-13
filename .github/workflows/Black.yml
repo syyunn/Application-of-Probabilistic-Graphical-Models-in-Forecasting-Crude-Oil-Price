@@ -8,6 +8,6 @@ jobs:
 
     steps:
       - name: Black Code Formatter
-        uses: jpetrucciani/black-check@master
+        uses: lgeiger/black-action@v1.0.1
         with:
-          path: '.'
+          path: '../../'
