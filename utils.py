@@ -48,17 +48,22 @@ def load_df_pickled(fpath):
     return pd.read_pickle(fpath)
 
 
-def split_df(df, train_set_ratio: float = 0.8, test_set_ratio: float=0.1,
-             valid_set_ratio: float=0.1):
-    assert train_set_ratio + test_set_ratio + valid_set_ratio == 1, \
-        "the sum of train/valid/test ratio shall be 1."
+def split_df(
+    df,
+    train_set_ratio: float = 0.8,
+    test_set_ratio: float = 0.1,
+    valid_set_ratio: float = 0.1,
+):
+    assert (
+        train_set_ratio + test_set_ratio + valid_set_ratio == 1
+    ), "the sum of train/valid/test ratio shall be 1."
 
-    train_end_idx = int(df.shape[0]*train_set_ratio)
-    valid_end_idx = int(df.shape[0]*(train_set_ratio+valid_set_ratio))
+    train_end_idx = int(df.shape[0] * train_set_ratio)
+    valid_end_idx = int(df.shape[0] * (train_set_ratio + valid_set_ratio))
     test_end_idx = int(df.shape[0])
 
     train_data = df[:train_end_idx]
-    valid_data = df[train_end_idx: valid_end_idx]
+    valid_data = df[train_end_idx:valid_end_idx]
     test_data = df[valid_end_idx:test_end_idx]
 
     return train_data, valid_data, test_data
