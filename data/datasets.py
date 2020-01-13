@@ -15,3 +15,14 @@ datasets_eia = [
     "STEO.T3_STCHANGE_OOECD.M",
     "STEO.T3_STCHANGE_NOECD.M",
 ]
+
+datasets_fred = [
+    "CPIENGSL",
+    "CAPG211S",
+    "CAPUTLG211S",
+    "IPG211S",
+    "IPG211111CN",
+    "INDPRO",
+    "IPN213111N",
+    "PCU211211",
+]
