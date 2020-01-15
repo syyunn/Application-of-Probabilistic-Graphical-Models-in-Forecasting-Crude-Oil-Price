@@ -24,6 +24,13 @@ for series_id in datasets_fred:
     df = pd.DataFrame(fred.get_series(series_id), columns=[series_id])
     data_merge.append(df)
 
+current = pd.DataFrame(fred.get_series('WTISPLC'), columns=['WTISPLC']);
+forecast = pd.DataFrame(fred.get_series('WTISPLC').shift(-1), columns=[
+    'forecast']);
+
+data_merge.append(current);
+data_merge.append(forecast);
+
 data = pd.concat(data_merge, axis=1, join="inner")
 
 utils.store_df_local(data, "./data.pkl")
