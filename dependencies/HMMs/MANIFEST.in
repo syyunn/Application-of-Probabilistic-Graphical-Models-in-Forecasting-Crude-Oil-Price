@@ -1,0 +1,6 @@
+include LICENSE
+include hmms.ipynb
+include test/common.py
+include test/experiments.py
+include requirements.txt
+recursive-include hmms *.pyx *.pxd 
