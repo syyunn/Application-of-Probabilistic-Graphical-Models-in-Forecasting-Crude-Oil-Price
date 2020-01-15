@@ -26,7 +26,7 @@ dhmm_r = hmms.DtHMM.random(3, 2)
 e_seq_split = np.array_split(e_seq, 32)  # hmms.DtHMM takes a list of arrays
 # no greater than length 32
 
-dhmm_r.baum_welch(e_seq_split, 1000)
+dhmm_r.baum_welch(e_seq_split, 100)
 
 hmms.print_parameters(dhmm_r)
 
@@ -40,6 +40,7 @@ means = price_plot.groupby(['Regime'])['diff'].mean()
 lst_1 = means.index.tolist()
 lst_2 = means.sort_values().index.tolist()
 map_regimes = dict(zip(lst_2, lst_1))
+price_plot['Regime'] = price_plot['Regime'].map(map_regimes)
 
 import matplotlib.dates as mdates
 import matplotlib.patches as mpatches
@@ -59,8 +60,8 @@ plt.gca().add_collection(lc)
 plt.xlim(price_plot['WTISPLC'].index.min(), price_plot['WTISPLC'].index.max())
 plt.ylim(price_plot['WTISPLC'].min(), price_plot['WTISPLC'].max())
 r_patch = mpatches.Patch(color='red', label='Bear')
-g_patch = mpatches.Patch(color='green', label='Bull')
 b_patch = mpatches.Patch(color='blue', label='Stagnant')
+g_patch = mpatches.Patch(color='green', label='Bull')
 plt.legend(handles=[r_patch, g_patch, b_patch])
 plt.show()
 
